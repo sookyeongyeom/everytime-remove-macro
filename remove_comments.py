@@ -8,6 +8,9 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import UnexpectedAlertPresentException
 import time
 
+eta_id = input("ID : ")
+eta_pw = input("PW : ")
+
 chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)
 
@@ -22,11 +25,11 @@ driver.get("https://everytime.kr/login")
 
 id = driver.find_element(By.CSS_SELECTOR, "#container > form > p:nth-child(1) > input")
 id.click()
-id.send_keys("likeaboat")
+id.send_keys(eta_id)
 
 pw = driver.find_element(By.CSS_SELECTOR, "#container > form > p:nth-child(2) > input")
 pw.click()
-pw.send_keys("sk7173")
+pw.send_keys(eta_pw)
 
 submit = driver.find_element(By.CSS_SELECTOR, "#container > form > p.submit > input")
 submit.click()
@@ -48,7 +51,7 @@ after_question = 0
 
 while True:
     cnt += 1
-    if cnt == 3:  # 2개 삭제
+    if cnt == 3:  # 2개 삭제 테스트
         break
 
     try:
